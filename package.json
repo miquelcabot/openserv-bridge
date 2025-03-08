@@ -21,7 +21,6 @@
   "license": "ISC",
   "dependencies": {
     "@openserv-labs/sdk": "^1.1.0",
-    "axios": "^1.8.2",
     "dotenv": "^16.4.5",
     "zod": "^3.22.4"
   },
