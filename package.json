@@ -22,6 +22,7 @@
   "dependencies": {
     "@goat-sdk/core": "^0.4.8",
     "@goat-sdk/plugin-debridge": "^0.0.6",
+    "@goat-sdk/wallet-viem": "^0.2.11",
     "@openserv-labs/sdk": "^1.1.0",
     "dotenv": "^16.4.5",
     "zod": "^3.22.4"
