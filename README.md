@@ -1,8 +1,6 @@
-# Agent Starter
+# Cross-Chain Bridge Agent
 
-A starter project to help you get started with [OpenServ Labs SDK](https://github.com/openserv-labs/sdk) - a powerful TypeScript framework for building non-deterministic AI agents with advanced cognitive capabilities.
-
-This starter provides a minimal setup to help you understand the basics of the SDK. For more advanced features like tasks, file operations, and inter-agent collaboration, check out the [SDK documentation](https://github.com/openserv-labs/sdk).
+A cross-chain bridge agent that facilitates transferring USDC from Ethereum mainnet to the Base chain using the [deBridge plugin](https://www.npmjs.com/package/@goat-sdk/plugin-debridge) and the [GOAT SDK](https://github.com/goat-sdk/goat). This agent leverages [OpenServ Labs SDK](https://github.com/openserv-labs/sdk) to enable seamless cross-chain transactions with monitoring and security measures.
 
 ## Before you start
 
@@ -29,8 +27,8 @@ A tunneling is a software utility that exposes a local server on your machine to
 
 1. Create an agent: Developer -> Add Agent --> Add: Agent Name and Capabilities Description
 
-Agent Name: `My first AI Agent Test`
-Capabilities Description: `I perform basic arithmetic operations`
+Agent Name: `Cross-Chain Bridge Agent`
+Capabilities Description: `Transfers USDC from Ethereum to Base via deBridge`
 
 2. Add Endpoint URL: set the agent's endpoint URL to your tunnelling URL (e.g. ngrok) --> Save
 3. Create an API key: Manage this agent --> Create secret key --> Copy secret key
@@ -44,8 +42,8 @@ Capabilities Description: `I perform basic arithmetic operations`
 
 1. Clone this repository
 ```bash
-git clone https://github.com/openserv-labs/agent-starter.git
-cd agent-starter
+git clone https://github.com/miquelcabot/openserv-bridge.git 
+cd openserv-bridge
 ```
 
 2. Install dependencies:
@@ -64,6 +62,8 @@ cp .env.example .env
    - `OPENSERV_API_KEY`: Your OpenServ API key
    - `PORT`: The port number for your agent's HTTP server (default: 7378)
    - `OPENAI_API_KEY`: Your OpenAI API key
+   - `WALLET_PRIVATE_KEY`: Your Ethereum private key (used for signing transactions)
+   - `RPC_PROVIDER_URL`: Ethereum mainnet RPC provider URL
 
 ## Using with OpenServ Platform
 
@@ -80,7 +80,7 @@ const response = await agent.process({
   messages: [
     {
       role: 'user',
-      content: 'add 13 and 29'
+      content: 'bridge 100 USDC from Ethereum to Base'
     }
   ]
 })
@@ -138,12 +138,3 @@ npm start
 - Environment variables are validated using Zod
 - ESLint and Prettier are configured for consistent code style
 - The agent uses natural language processing to understand and execute commands
-
-## Next Steps
-
-Once you're comfortable with the basics, explore more advanced features in the [OpenServ Labs SDK](https://github.com/openserv-labs/sdk):
-- Tasks and workflows
-- Chat interactions
-- File operations
-- Custom capabilities
-- Inter-agent collaboration
